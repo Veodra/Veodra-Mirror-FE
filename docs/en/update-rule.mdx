@@ -1,0 +1,100 @@
+# Mirror Rule File Syntax
+
+The `updateRule.json` file configures the automatic update and version retention policies for a mirrored repository. It allows you to fine-tune which image versions should be kept and which should be automatically deleted when storage space is low.
+
+## File Structure
+
+The `updateRule.json` file is a JSON object containing the following fields:
+
+*   **`mode`** (string, required): The update mode. Determines how the mirror repository handles updates and storage.
+    *   `"automatic"`: Automatic update mode.  The mirror automatically downloads and updates when new image versions are available. If storage space is insufficient, older versions will be automatically deleted according to the configured rules.
+    *   `"manual"`: Manual update mode. The mirror will *not* automatically download and update images, nor will it automatically delete old versions.  Updates and version management are entirely controlled by the user.
+
+**The following fields are only applicable when `mode` is set to `"automatic"`:**
+
+*   **`keepMajorVersions`** (string | array, optional): Specifies the major versions to retain.
+    *   `"all"`: Retains the latest version of *all* major versions.
+    *   `[1]`, `[1, 2]`, `[1, 2, 3]`, ...: Retains the latest version of the specified major versions. For example, `[1, 3]` means retain the latest versions of major versions 1 and 3.
+
+*   **`keepVersions`** (array, optional): Explicitly specifies the image versions to keep (full version numbers, e.g., `x.y.z` or `x.y.z-alpha.1`).  Version numbers can be in SemVer or date format. This setting has higher priority than `keepMajorVersions`.
+
+*   **`withoutVersions`** (array, optional): Explicitly specifies image versions that are *not* needed (full version numbers, e.g., `x.y.z` or `x.y.z-alpha.1`). Version numbers can be in SemVer or date format. This has the highest priority; if a local version exists, it will be deleted, and if a remote version exists, it will not be pulled.
+
+*   **`preRelease`** (object, optional): Synchronization and management policies for pre-release versions (e.g., alpha, beta).
+    *   `syncAlpha` (boolean, optional): Whether to synchronize alpha versions of the image. Defaults to `false`.
+    *   `syncBeta` (boolean, optional): Whether to synchronize beta versions of the image. Defaults to `false`.
+    *   `setPreFolder` (boolean, optional): Whether to create a separate folder for pre-release versions. If `true`, pre-release versions will be stored in a dedicated folder. Defaults to `false`.
+
+## Priority
+
+The priority of the configuration rules is as follows (from highest to lowest):
+
+1.  `withoutVersions`
+2.  `preRelease`
+3.  `keepVersions`
+4.  `keepMajorVersions`
+
+**Examples**
+
+1.  **Automatic update, keep the latest version of all major versions:**
+
+```json
+{
+    "mode": "automatic",
+    "keepMajorVersions": "all"
+}
+```
+
+2.  **Manual update:**
+
+```json
+{
+    "mode": "manual"
+}
+```
+
+3.  **Automatic update, keep the latest versions of major versions 1 and 2, synchronize beta versions, but not alpha versions:**
+
+```json
+{
+    "mode": "automatic",
+    "keepMajorVersions": [1, 2],
+    "preRelease": {
+        "syncBeta": true,
+        "syncAlpha": false
+    }
+}
+```
+
+4.  **Automatic update, explicitly specify versions to keep and versions to exclude:**
+
+```json
+{
+    "mode": "automatic",
+    "keepVersions": ["1.0.0", "1.2.3"],
+    "withoutVersions": ["2.0.0-alpha.1"]
+}
+```
+
+5. **Automatic update, pre-release versions in a separate folder:**
+
+```json
+{
+    "mode": "automatic",
+    "preRelease": {
+        "syncAlpha": true,
+        "setPreFolder": true
+    }
+}
+```
+
+## Notes
+
+*   Version number comparisons follow the SemVer specification (if SemVer is used). If a date format is used, comparisons are based on the date order.
+*   If `mode` is `automatic`, when storage space is insufficient to accommodate a new version, the automatic deletion order is:
+    1.  First, delete versions listed in `withoutVersions`.
+    2.  If applicable, delete old pre-release versions according to the `preRelease` settings.
+    3.  If applicable, delete old versions that do not match the `keepVersions` rules.
+    4.  If applicable, delete old versions that do not match the `keepMajorVersions` rules (except for the latest version retained for each major version).
+    5.  If, after all the above steps, storage space is still insufficient, no further deletions will occur, updates will be paused, and a notification email will be sent to the user.
+*   If `mode` is `manual`, images will only be deleted when the user manually deletes them.  If storage space is insufficient to accommodate a new version, updates will be paused, and a notification email will be sent to the user.

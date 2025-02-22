@@ -1,0 +1,76 @@
+{
+    "Nav": {
+        "home": "Home",
+        "docs": "Docs",
+        "pricing": "Pricing"
+    },
+    "Index": {
+        "subtitle1": "GitHub Release Mirror.",
+        "subtitle2": "Stable, fast downloads for your software.",
+        "getstarted": "Get Started",
+        "Accordion": {
+            "question1": "Why Veodra Mirror?",
+            "answer1": "Veodra Mirror provides a software download channel for small and medium-sized developers, and can provide high-speed downloads in highly censored areas.",
+            "question2": "How does Veodra Mirror work?",
+            "answer2": "Veodra Mirror regularly checks for updates from GitHub Release and uses Cloudflare R2 to automatically cache and manage your Release content.",
+            "question3": "Veodra Mirror's pricing?",
+            "answer3": "During the beta ver., each registered user has 10 GB of storage space in the Free plan. If you need more storage, please wait for the stable ver. to go online.",
+            "question4": "Notes",
+            "answer4-1": "1. In order to ensure the stability and availability of this mirror, please do not attempt to apply for a mirror that violates the content of any country's laws.",
+            "answer4-2": "2. Storage servers have costs, so please do not attempt to register multiple accounts to obtain free storage space.",
+            "answer4-3": "3. This mirror will not modify your Release content, but will review your Release content to a certain extent."
+        }
+    },
+    "Login": {
+        "title": "Welcome Back",
+        "subtitle": "Log in to your account to continue",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember me",
+        "forgot": "Forgot password?",
+        "login": "Log in",
+        "createnew": "Need to create an account?",
+        "signup": "Sign up"
+    },
+    "Register": {
+        "title": "Welcome to Veodra Mirror",
+        "subtitle": "Create an account to get started",
+        "username": "Username",
+        "usernameTip": "Username should have 3~20 characters.",
+        "email": "Email",
+        "emailTip": "Please enter a valid email address.",
+        "password": "Password",
+        "passwordTip": "Password should at least 8 characters.",
+        "confirm": "Confirm Password",
+        "confirmTip": "Passwords do not match.",
+        "agreement1": "I agree with the",
+        "terms": "Terms of Service",
+        "agreement2": "and",
+        "privacy": "Privacy Policy",
+        "signup": "Sign up",
+        "already": "Already have an account?",
+        "login": "Log in"
+    },
+    "404": {
+        "19Message": "This is my handle, this is my spout~",
+        "19Orista": "I'm a teapot.",
+        "15Message": "How about we explore the area ahead of us later?",
+        "15Orista": "You can't find some emergency food ahead.",
+        "NMessage": "Huh? How did you get here?",
+        "NOrista": "The page does not exist or has been deleted.",
+        "Backto": "Back to: ",
+        "Home": "Home Page",
+        "or": "or",
+        "Previous": "Previous Page"
+    },
+    "Docs": {
+        "title": "Veodra Mirror Documentation",
+        "subtitle": "Elegantly use Veodra Mirror: Explore the advanced features of the mirror🤯",
+        "start": "Start Reading",
+        "docList": "Document List"
+    },
+    "LoginToast": {
+        "title": "Not Logged In",
+        "description": "Please log in to access this page."
+    }
+}

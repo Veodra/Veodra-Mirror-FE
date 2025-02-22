@@ -1,0 +1,76 @@
+{
+    "Nav": {
+        "home": "主页",
+        "docs": "使用文档",
+        "pricing": "定价"
+    },
+    "Index": {
+        "subtitle1": "GitHub Release 镜像。",
+        "subtitle2": "为您的软件提供稳定、快速的下载服务。",
+        "getstarted": "开始使用",
+        "Accordion": {
+            "question1": "为什么要使用 Veodra Mirror？",
+            "answer1": "Veodra Mirror 为中小型开发者提供一个分流的软件下载渠道，在网络受限地区更能提供高速下载。",
+            "question2": "Veodra Mirror 是如何工作的？",
+            "answer2": "Veodra Mirror 定期从 GitHub Release 检测更新并使用 Cloudflare R2 自动转存和管理您的 Release 内容。",
+            "question3": "Veodra Mirror 的价格？",
+            "answer3": "试运行期间注册的每位用户在 Free 计划拥有 10 GB 的存储空间，需要更多存储请等待正式版上线。",
+            "question4": "注意事项",
+            "answer4-1": "1. 为了本镜像的稳定及可用性，请不要试图申请镜像违反任何国家法律的内容。",
+            "answer4-2": "2. 存储服务器有成本，请不要试图通过注册多个账号以获取免费存储空间。",
+            "answer4-3": "3. 本镜像不会对您的 Release 内容进行任何修改，但会对您的 Release 内容进行一定审查。"
+        }
+    },
+    "Login": {
+        "title": "欢迎回来",
+        "subtitle": "登录您的账户以继续",
+        "email": "邮箱",
+        "password": "密码",
+        "remember": "记住我的账号",
+        "forgot": "忘记密码？",
+        "login": "登录",
+        "createnew": "需要创建一个账户？",
+        "signup": "点击注册"
+    },
+    "Register": {
+        "title": "欢迎使用 Veodra Mirror",
+        "subtitle": "创建一个账户以开始使用",
+        "username": "用户名",
+        "usernameTip": "用户名应该有 3~20 个字符。",
+        "email": "邮箱",
+        "emailTip": "请输入一个有效的邮箱地址。",
+        "password": "密码",
+        "passwordTip": "密码至少应该有 8 个字符。",
+        "confirm": "确认密码",
+        "confirmTip": "两次输入的密码不一致。",
+        "agreement1": "我同意",
+        "terms": "服务条款",
+        "agreement2": "和",
+        "privacy": "隐私政策",
+        "signup": "注册",
+        "already": "已经有一个账户了？",
+        "login": "点击登录"
+    },
+    "404": {
+        "19Message": "这是我的壶柄，这是我的嘴~",
+        "19Orista": "我是一个小茶壶",
+        "15Message": "前面的区域，以后再来探索吧！",
+        "15Orista": "你没法在前面找到应急食品。",
+        "NMessage": "诶？你是怎么找到这里的？",
+        "NOrista": "此页面不存在或已被删除。",
+        "Backto": "点击返回",
+        "Home": "主页",
+        "or": "或",
+        "Previous": "上一页"
+    },
+    "Docs": {
+        "title": "Veodra Mirror 使用文档",
+        "subtitle": "优雅的使用 Veodra Mirror：探索镜像的高级功能🤯",
+        "start": "开始阅读",
+        "docList": "文档列表"
+    },
+    "LoginToast": {
+        "title": "未登录",
+        "description": "请先登录您的账户。"
+    }
+}
