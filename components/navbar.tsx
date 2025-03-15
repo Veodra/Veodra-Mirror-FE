@@ -32,7 +32,6 @@ export const Navbar = () => {
   const router = useRouter();
   const removeLocale = ( path: string ) => {
     if (path.startsWith('/en') || path.startsWith('/zh')) {
-      console.log(path.slice(3));
       return path.slice(3);
     }
     return path;

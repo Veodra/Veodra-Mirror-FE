@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getInfo } from "@/utils/server";
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 export const UserButton = () => {
     const router = useRouter();
     const t = useTranslations();
@@ -16,11 +18,10 @@ export const UserButton = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const data = await getInfo(); // 发请求拿用户信息
+                const data = await getInfo();
                 setUserInfo(data);
-                console.log(data)
             } catch (err) {
-                setUserInfo(null); // 如果失败说明未登录
+                setUserInfo(null);
             } finally {
                 setLoading(false);
             }
@@ -31,7 +32,7 @@ export const UserButton = () => {
 
     const logout = async () => {
         try {
-            await axios.post("http://127.0.0.1:3003/logout", {}, {
+            await axios.post(`${BACKEND_URL}/logout`, {}, {
                 withCredentials: true
             });
             setUserInfo(null); // 清空前端状态

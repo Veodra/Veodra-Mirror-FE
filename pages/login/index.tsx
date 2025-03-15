@@ -58,7 +58,6 @@ export default function LoginPage() {
     };
     try {
       await loginUser(data);
-      console.log(data)
       alert(t("Login.success"));
       router.push("/");
     } catch (err) {
