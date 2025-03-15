@@ -30,7 +30,8 @@
         "forgot": "Forgot password?",
         "login": "Log in",
         "createnew": "Need to create an account?",
-        "signup": "Sign up"
+        "signup": "Sign up",
+        "success": "Login successful!"
     },
     "Register": {
         "title": "Welcome to Veodra Mirror",
@@ -72,5 +73,22 @@
     "LoginToast": {
         "title": "Not Logged In",
         "description": "Please log in to access this page."
+    },
+    "Common": {
+        "errorGeneric": "An error occurred. Please try again later.",
+        "networkError": "Network error, please try again later.",
+        "requestError": "Request error, please check your input and try again."
+    },
+    "Verify": {
+        "title": "Email Verification",
+        "prompt": "An OTP code has been sent to your email. Please enter it below.",
+        "spamCheck": "If you do not see the email, please check your spam folder.",
+        "verifySuccess": "Your account is verified successfully!",
+        "verifyButton": "Verify"
+    },
+    "Userbutton": {
+        "signas1": "Signed in as",
+        "signas2": "",
+        "logout": "Log out"
     }
 }
