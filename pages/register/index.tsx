@@ -8,7 +8,14 @@ import { Divider } from "@heroui/divider";
 import { Form } from "@heroui/form";
 import { Input } from "@heroui/input";
 import { Link } from "@heroui/link";
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/modal";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@heroui/modal";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -101,8 +108,12 @@ export default function RegisterPage() {
   }, [cpassword]);
 
   const isAllValid =
-    !isEmailInvalid && !isUsernameInvalid && !isPasswordInvalid && !isConfirmInvalid;
-  const isAllFilled = username !== "" && email !== "" && password !== "" && cpassword !== "";
+    !isEmailInvalid &&
+    !isUsernameInvalid &&
+    !isPasswordInvalid &&
+    !isConfirmInvalid;
+  const isAllFilled =
+    username !== "" && email !== "" && password !== "" && cpassword !== "";
 
   const handleVerify = async () => {
     try {
@@ -116,7 +127,9 @@ export default function RegisterPage() {
 
   const clickOnSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget as HTMLFormElement));
+    const data = Object.fromEntries(
+      new FormData(e.currentTarget as HTMLFormElement),
+    );
     try {
       const newUser = await createUser(data);
       if (newUser) {
@@ -132,7 +145,9 @@ export default function RegisterPage() {
       <section className="flex items-center justify-center">
         <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-8 flex w-5/6 max-w-lg flex-col gap-4 rounded-large">
           <CardBody>
-            <p className="text-2xl font-bold text-center">{t("Register.title")}</p>
+            <p className="text-2xl font-bold text-center">
+              {t("Register.title")}
+            </p>
             <p className="text-md text-default-500 text-center">
               {t("Register.subtitle")}
             </p>
@@ -240,11 +255,21 @@ export default function RegisterPage() {
                 onValueChange={setIsAgreeSelected}
               >
                 {t("Register.agreement1")}&nbsp;
-                <Link href="terms.html" size="sm" target="_blank" className="z-50">
+                <Link
+                  href="terms.html"
+                  size="sm"
+                  target="_blank"
+                  className="z-50"
+                >
                   {t("Register.terms")}
                 </Link>
                 &nbsp;{t("Register.agreement2")}&nbsp;
-                <Link href="privacy.html" size="sm" target="_blank" className="z-50">
+                <Link
+                  href="privacy.html"
+                  size="sm"
+                  target="_blank"
+                  className="z-50"
+                >
                   {t("Register.privacy")}
                 </Link>
               </Checkbox>
@@ -264,13 +289,22 @@ export default function RegisterPage() {
             </div>
             <p className="text-center text-small">
               {t("Register.already")}&nbsp;
-              <Link className="cursor-pointer" onPress={() => router.push("/login")} size="sm">
+              <Link
+                className="cursor-pointer"
+                onPress={() => router.push("/login")}
+                size="sm"
+              >
                 {t("Register.login")}
               </Link>
             </p>
           </CardBody>
         </Card>
-        <Modal size="xl" isOpen={isVerifyOpen} onOpenChange={setIsVerifyOpen} backdrop="blur">
+        <Modal
+          size="xl"
+          isOpen={isVerifyOpen}
+          onOpenChange={setIsVerifyOpen}
+          backdrop="blur"
+        >
           <ModalContent>
             {() => (
               <>

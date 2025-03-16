@@ -7,18 +7,18 @@ import { useTranslations } from "next-intl";
 import { UserNotLoggedInIcon } from "@/components/icons";
 import { getInfo } from "@/utils/server";
 
-export async function getStaticProps(context: { locale: any; }) {
+export async function getStaticProps(context: { locale: any }) {
   return {
     props: {
-      messages: (await import(`../../intl/${context.locale}.json`)).default
-    }
+      messages: (await import(`../../intl/${context.locale}.json`)).default,
+    },
   };
 }
 export default function DashPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState<any>(null);
-  const toastShownRef = useRef(false); 
+  const toastShownRef = useRef(false);
   const loginToastT = useTranslations("LoginToast");
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function DashPage() {
             description: loginToastT("description"),
             timeout: 5000,
             shouldShowTimeoutProgress: true,
-            icon: (<UserNotLoggedInIcon />)
+            icon: <UserNotLoggedInIcon />,
           });
           toastShownRef.current = true;
         }

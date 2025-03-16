@@ -2,18 +2,19 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Veodra Mirror",
-  description: "GitHub Release Mirror. Stable, fast downloads for your software.",
+  description:
+    "GitHub Release Mirror. Stable, fast downloads for your software.",
   navItems: [
     {
-      label: 'home',
+      label: "home",
       href: "/",
     },
     {
-      label: 'docs',
+      label: "docs",
       href: "/docs",
     },
     {
-      label: 'pricing',
+      label: "pricing",
       href: "/pricing",
     },
   ],

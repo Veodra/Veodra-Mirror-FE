@@ -1,10 +1,10 @@
 import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
-export async function getStaticProps(context: { locale: any; }) {
+export async function getStaticProps(context: { locale: any }) {
   return {
     props: {
-      messages: (await import(`../../intl/${context.locale}.json`)).default
-    }
+      messages: (await import(`../../intl/${context.locale}.json`)).default,
+    },
   };
 }
 export default function DocsPage() {

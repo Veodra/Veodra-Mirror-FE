@@ -8,13 +8,13 @@ import { useRouter } from "next/router";
 import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
 
-import {NextIntlClientProvider} from 'next-intl';
+import { NextIntlClientProvider } from "next-intl";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       * {
         transition: background-color 0.3s ease-in-out;

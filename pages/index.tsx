@@ -12,11 +12,11 @@ import { useTranslations } from "next-intl";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { Button } from "@heroui/button";
 
-export async function getStaticProps(context: { locale: any; }) {
+export async function getStaticProps(context: { locale: any }) {
   return {
     props: {
-      messages: (await import(`../intl/${context.locale}.json`)).default
-    }
+      messages: (await import(`../intl/${context.locale}.json`)).default,
+    },
   };
 }
 
@@ -27,15 +27,20 @@ export default function IndexPage() {
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-4 md:py-6">
         <div className="inline-block max-w-xl text-center justify-center">
-          <span className={title()}>Veodra Mirror</span><br />
+          <span className={title()}>Veodra Mirror</span>
+          <br />
           <div className={subtitle({ class: "mt-4" })}>
-            {t("subtitle1")}<br />{t("subtitle2")}
+            {t("subtitle1")}
+            <br />
+            {t("subtitle2")}
           </div>
         </div>
 
         <div className="flex gap-3">
           <Button
-            color="primary" variant="ghost" radius="full"
+            color="primary"
+            variant="ghost"
+            radius="full"
             onPress={() => router.push("/dashboard")}
             as={Link}
           >
@@ -44,16 +49,32 @@ export default function IndexPage() {
           </Button>
         </div>
         <Accordion variant="splitted" className="max-w-lg">
-          <AccordionItem key="1" aria-label="why" title={t("Accordion.question1")}>
+          <AccordionItem
+            key="1"
+            aria-label="why"
+            title={t("Accordion.question1")}
+          >
             <p>{t("Accordion.answer1")}</p>
           </AccordionItem>
-          <AccordionItem key="2" aria-label="how" title={t("Accordion.question2")}>
+          <AccordionItem
+            key="2"
+            aria-label="how"
+            title={t("Accordion.question2")}
+          >
             <p>{t("Accordion.answer2")}</p>
           </AccordionItem>
-          <AccordionItem key="3" aria-label="howmuch" title={t("Accordion.question3")}>
+          <AccordionItem
+            key="3"
+            aria-label="howmuch"
+            title={t("Accordion.question3")}
+          >
             <p>{t("Accordion.answer3")}</p>
           </AccordionItem>
-          <AccordionItem key="4" aria-label="attention" title={t("Accordion.question4")}>
+          <AccordionItem
+            key="4"
+            aria-label="attention"
+            title={t("Accordion.question4")}
+          >
             <p>{t("Accordion.answer4-1")}</p>
             <p>{t("Accordion.answer4-2")}</p>
             <p>{t("Accordion.answer4-3")}</p>

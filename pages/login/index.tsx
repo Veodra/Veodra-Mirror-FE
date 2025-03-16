@@ -25,7 +25,7 @@ export async function getStaticProps(context: { locale: any }) {
 const loginUser = async (userData: any) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/login`, userData, {
-      withCredentials: true
+      withCredentials: true,
     });
     return response.data;
   } catch (error) {
@@ -70,8 +70,12 @@ export default function LoginPage() {
       <section className="flex items-center justify-center">
         <Card className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-8 flex w-5/6 max-w-lg flex-col gap-4 rounded-large">
           <CardBody>
-            <p className="text-2xl font-medium text-center">{t("Login.title")}</p>
-            <p className="text-md text-default-500 text-center">{t("Login.subtitle")}</p>
+            <p className="text-2xl font-medium text-center">
+              {t("Login.title")}
+            </p>
+            <p className="text-md text-default-500 text-center">
+              {t("Login.subtitle")}
+            </p>
             <Form
               className="px-4 py-12 items-center justify-centerflex flex-col gap-3"
               validationBehavior="native"
@@ -89,7 +93,11 @@ export default function LoginPage() {
                 value={password}
                 onValueChange={setPassword}
                 endContent={
-                  <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                  <button
+                    className="focus:outline-none"
+                    type="button"
+                    onClick={toggleVisibility}
+                  >
                     {isVisible ? (
                       <EyeSlashFilledIcon className="text-4xl text-default-400 pointer-events-none" />
                     ) : (
@@ -100,10 +108,19 @@ export default function LoginPage() {
                 type={isVisible ? "text" : "password"}
               />
               <div className="flex w-full items-center justify-between px-1 py-2">
-                <Checkbox name="remember" size="sm" isSelected={isRemember} onValueChange={setIsRemember}>
+                <Checkbox
+                  name="remember"
+                  size="sm"
+                  isSelected={isRemember}
+                  onValueChange={setIsRemember}
+                >
                   {t("Login.remember")}
                 </Checkbox>
-                <Link className="text-default-500 cursor-pointer" onPress={() => router.push("/forgot-password")} size="sm">
+                <Link
+                  className="text-default-500 cursor-pointer"
+                  onPress={() => router.push("/forgot-password")}
+                  size="sm"
+                >
                   {t("Login.forgot")}
                 </Link>
               </div>
@@ -118,7 +135,11 @@ export default function LoginPage() {
             </div>
             <p className="text-center text-small">
               {t("Login.createnew")}&nbsp;
-              <Link className="text-small cursor-pointer" color="primary" onPress={() => router.push("/register")}>
+              <Link
+                className="text-small cursor-pointer"
+                color="primary"
+                onPress={() => router.push("/register")}
+              >
                 {t("Login.signup")}
               </Link>
             </p>
