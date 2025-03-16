@@ -32,7 +32,7 @@ export default function DashPage() {
             title: loginToastT("title"),
             description: loginToastT("description"),
             timeout: 5000,
-            shouldShowTimeoutProgess: true,
+            shouldShowTimeoutProgress: true,
             icon: (<UserNotLoggedInIcon />)
           });
           toastShownRef.current = true;
